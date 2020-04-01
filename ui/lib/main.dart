@@ -1,15 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:ui/counter.dart';
 
-class UIDesign extends StatefulWidget {
-  @override
-  _UIDesignState createState() => _UIDesignState();
-}
-
-class _UIDesignState extends State<UIDesign> {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: Text("Bhok Lagyo"),
-    );
-  }
+void main(){
+  runApp(MaterialApp(
+    theme: ThemeData.dark(),
+    debugShowCheckedModeBanner: false,
+    home:Counter()));
 }
