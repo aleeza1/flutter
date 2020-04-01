@@ -1,99 +1,39 @@
 import 'package:flutter/material.dart';
+import 'package:ui/counter.dart';
+import 'package:ui/layout.dart';
 
-class DashboardUi extends StatefulWidget {
-  @override
-  _DashboardUiState createState() => _DashboardUiState();
-}
-
-class _DashboardUiState extends State<DashboardUi> {
+class DashboardUi extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        darkTheme: ThemeData.dark(),
-        debugShowCheckedModeBanner: false,
-        home: Scaffold(
-            appBar: AppBar(
-              centerTitle: true,
-              title: Text("Dashboard"),
-            ),
-            body: GridView.count(
-              crossAxisCount: 4,
-              children: <Widget>[
-                GridTile(
-                  child: Container(
-                    child: IconButton(
-                        icon: Icon(Icons.grid_on),
-                        onPressed: () {
-                          _displayMessage();
-                        }),
-                  ),
-                  footer:
-                      Align(alignment: Alignment.center, child: Text("Grid")),
-                ),
-                GridTile(
-                  child: Container(
-                    child: IconButton(
-                        icon: Icon(Icons.list),
-                        onPressed: () {
-                          _displayMessage();
-                        }),
-                  ),
-                  footer:
-                      Align(alignment: Alignment.center, child: Text("Icons")),
-                ),
-                GridTile(
-                  child: Container(
-                    child: IconButton(
-                        icon: Icon(Icons.zoom_in),
-                        onPressed: () {
-                          _displayMessage();
-                        }),
-                  ),
-                  footer: Align(
-                      alignment: Alignment.center,
-                      child: Text("Zoomable Images")),
-                ),
-                GridTile(
-                  child: Container(
-                    child: IconButton(
-                        icon: Icon(Icons.zoom_in),
-                        onPressed: () {
-                          _displayMessage();
-                        }),
-                  ),
-                  footer: Align(
-                      alignment: Alignment.center,
-                      child: Text("Zoomable Images")),
-                ),
-                GridTile(
-                  child: Container(
-                    child: IconButton(
-                        tooltip: 'Tables',
-                        icon: Icon(Icons.table_chart),
-                        onPressed: () {
-                          _displayMessage();
-                        }),
-                  ),
-                  footer:
-                      Align(alignment: Alignment.center, child: Text("Tables")),
-                ),
-                GridTile(
-                  child: Container(
-                    child: IconButton(
-                        icon: Icon(Icons.add_box),
-                        onPressed: () {
-                          _displayMessage();
-                        }),
-                  ),
-                  footer: Align(
-                      alignment: Alignment.center, child: Text("Buttons")),
-                ),
-              ],
-            )));
-  }
-
-  void _displayMessage() {
-    print("You pressed an icon");
+    return Scaffold(
+        appBar: AppBar(
+          centerTitle: true,
+          title: Text("Dashboard"),
+        ),
+        body: GridView.count(
+          crossAxisCount: 3,
+          children: <Widget>[
+            GridTile(
+                child: IconButton(
+                    icon: Icon(Icons.format_indent_increase),
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => Counter()));
+                    }),
+                footer: Align(
+                  alignment: Alignment.center,
+                  child: Text("Counter"),
+                )),
+            GridTile(
+                child: IconButton(
+                    icon: Icon(Icons.label_outline),
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => LayoutUi()));
+                    }),
+                footer:
+                    Align(alignment: Alignment.center, child: Text("Layout"))),
+          ],
+        ));
   }
 }
-

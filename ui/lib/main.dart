@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:ui/counter.dart';
+
+import 'package:ui/dashboard.dart';
 
 void main(){
   runApp(MaterialApp(
     theme: ThemeData.dark(),
     debugShowCheckedModeBanner: false,
-    home:Counter()));
+    home:DashboardUi()));
 }
